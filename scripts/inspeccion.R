@@ -11,3 +11,4 @@
 #         - ticket promedio (ventas totales / clientes totales)
 #         - sucursal con mayor y menor venta
 #         - región con mayor venta total
+print("Hola")
