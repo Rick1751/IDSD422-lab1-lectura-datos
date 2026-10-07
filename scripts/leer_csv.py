@@ -8,7 +8,7 @@
 # Leemos el csv con la r para que python sepa que es un directorio
 import pandas as pd
 datos = r"C:\Users\P05E002-Ch\Documents\programacion y estadistica\IDSD422-lab1-lectura-datos\data\ventas.csv"
-df = pd.read_csv(datos)
+df = pd.read_csv(datos) 
 # Imprimir el cvs 
 df
 # Imprimir las dimensiones
