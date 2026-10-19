@@ -27,16 +27,16 @@ Los formatos tienen estructuras internas distintas —texto tabular, lista de di
 
 | Variable | Tipo inferido (Python) | Tipo inferido (R) | Interpretación |
 |---|---|---|---|
-| `ventas` | `int64` | `integer` | Importe numérico entero. |
-| `clientes` | `int64` | `integer` | Conteo numérico entero. |
-| `sucursal` | `object` | `character` | Nombre textual de la sucursal. |
-| `region` | `object` | `character` | Región textual; en R se confirmó que es `character`. |
+| `ventas` | `int64` | `numeric` (`double`) | Importe numérico entero en los valores observados. |
+| `clientes` | `int64` | `numeric` (`double`) | Conteo numérico entero en los valores observados. |
+| `sucursal` | `str` | `character` | Nombre textual de la sucursal. |
+| `region` | `str` | `character` | Región textual; en R se confirmó que es `character`. |
 
 Si `ventas` llegara como texto, el tipo inferido no sería numérico y las sumas, promedios y comparaciones podrían fallar o producir resultados incorrectos. Esto indicaría la necesidad de limpiar y convertir la columna antes del análisis.
 
 ## 3. Particularidades técnicas encontradas
 
-- **CSV:** se leyó como una tabla delimitada con `read_csv`/`pd.read_csv`; las columnas de texto quedaron como `character` en R y `object` en Python.
+- **CSV:** se leyó como una tabla delimitada con `read_csv`/`pd.read_csv`; las columnas de texto quedaron como `character` en R y texto (`str`) en Python.
 - **JSON:** llegó como una lista de diccionarios, por lo que en Python se cargó con `json.load` y se aplanó con `pd.json_normalize`; en R `fromJSON` permitió convertirlo a `data.frame`.
 - **Excel:** se leyó indicando explícitamente la única hoja, llamada `ventas`; las categóricas conservaron sus tipos textuales.
 

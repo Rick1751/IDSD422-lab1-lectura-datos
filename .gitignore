@@ -5,6 +5,7 @@ __pycache__/
 *.log
 *.tmp
 *.swp
+*.bak
 
 # R
 .Rhistory
